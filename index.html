@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>PulseDash Survival</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <p id="runtimeMessage" class="runtime-message" role="status" aria-live="polite"></p>
+
+      <section id="menuScreen" class="screen active">
+        <h1>PulseDash Survival</h1>
+        <p class="tagline">One-hand obstacle survival</p>
+
+        <div class="stats-card">
+          <p>Best Time: <strong id="bestTimeValue">0.0s</strong></p>
+          <p>Total Coins: <strong id="coinValue">0</strong></p>
+          <p>Level: <strong id="levelValue">1</strong></p>
+        </div>
+
+        <button id="playBtn" class="btn primary">Play Now</button>
+      </section>
+
+      <section id="gameScreen" class="screen">
+        <div class="hud">
+          <span>⏱ <strong id="timeValue">0.0</strong>s</span>
+          <span>🪙 <strong id="runCoinValue">0</strong></span>
+        </div>
+        <div id="gameContainer"></div>
+        <p class="hint">Tap left/right side to move</p>
+      </section>
+
+      <section id="gameOverScreen" class="screen">
+        <h2>Game Over</h2>
+        <div class="stats-card">
+          <p>Time Survived: <strong id="finalTimeValue">0.0s</strong></p>
+          <p>Coins Collected: <strong id="finalCoinsValue">0</strong></p>
+          <p>Best Time: <strong id="bestAfterRunValue">0.0s</strong></p>
+        </div>
+        <button id="restartBtn" class="btn primary">Restart</button>
+        <button id="menuBtn" class="btn">Main Menu</button>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

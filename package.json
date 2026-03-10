@@ -1,0 +1,9 @@
+{
+  "name": "pulsedash-survival",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playable Phaser obstacle survival game prototype",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

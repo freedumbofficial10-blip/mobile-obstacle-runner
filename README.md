@@ -9,6 +9,8 @@ mobile-obstacle-runner/
 ├── index.html     # App shell and screens (Menu, Gameplay, Game Over)
 ├── styles.css     # Mobile UI styles and layout
 ├── app.js         # Game flow, Phaser logic, localStorage persistence
+├── server.js      # Local static server (no dependencies)
+├── package.json   # npm start script
 └── README.md      # Setup and run instructions
 ```
 
@@ -31,19 +33,32 @@ mobile-obstacle-runner/
 
 Main Menu → Play Now → Gameplay → Game Over → Restart
 
-## Run Instructions
+## Start the Game Locally (Browser Runnable)
 
-### Option 1: Python
+### Recommended (Node.js, one command)
+
+1. Make sure Node.js 18+ is installed.
+2. In the project folder, run:
+
+```bash
+npm start
+```
+
+3. Open your browser at:
+
+```text
+http://localhost:4173
+```
+
+### Alternative (Python)
+
+If you prefer Python:
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Open: `http://localhost:4173`
-
-### Option 2: VS Code Live Server
-
-Serve `index.html` with any static server and open in browser.
+Then open `http://localhost:4173`.
 
 ## Controls
 

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseDash Survival - Mobile Game Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="phone-frame">
+        <header class="top-bar">
+          <button class="icon-btn" id="backBtn" aria-label="Go back">←</button>
+          <div class="meta">
+            <span class="pill">⚡ Lv 14</span>
+            <span class="pill">💰 <span id="globalCoins">12840</span></span>
+          </div>
+          <button class="icon-btn" id="settingsBtn" data-screen="profile">⚙</button>
+        </header>
+
+        <main>
+          <section class="screen active" id="splash">
+            <div class="hero-logo">PulseDash</div>
+            <p class="subtitle">SURVIVE. COLLECT. DOMINATE.</p>
+            <div class="loader"><span></span></div>
+            <button class="cta" data-screen="menu">Tap to Start</button>
+          </section>
+
+          <section class="screen" id="menu">
+            <h1>Main Menu</h1>
+            <div class="stat-grid">
+              <article>
+                <h3>Best Time</h3>
+                <p>04:12</p>
+              </article>
+              <article>
+                <h3>Top Rank</h3>
+                <p>#28</p>
+              </article>
+              <article>
+                <h3>Today Mission</h3>
+                <p>Collect 200 coins</p>
+              </article>
+            </div>
+            <button class="cta large" data-screen="modes">Play Now</button>
+            <div class="menu-actions">
+              <button class="ghost" data-screen="daily">Daily Reward</button>
+              <button class="ghost" data-screen="shop">Shop</button>
+              <button class="ghost" data-screen="profile">Profile</button>
+            </div>
+          </section>
+
+          <section class="screen" id="modes">
+            <h1>Mode Selection</h1>
+            <div class="mode-list">
+              <article class="mode-card selected">
+                <h3>Endless Run</h3>
+                <p>Classic survival. Speed rises every 30 sec.</p>
+              </article>
+              <article class="mode-card">
+                <h3>Coin Storm</h3>
+                <p>Double coin spawns for quick farming.</p>
+              </article>
+              <article class="mode-card locked">
+                <h3>Shadow Rush</h3>
+                <p>Unlock at Level 20.</p>
+              </article>
+            </div>
+            <button class="cta" data-screen="gameplay">Start Run</button>
+          </section>
+
+          <section class="screen gameplay" id="gameplay">
+            <div class="hud-row">
+              <span>⏱ 01:08</span>
+              <span>⭐ Score: 872</span>
+              <span>🪙 163</span>
+            </div>
+            <div class="playfield">
+              <div class="runner">🏃</div>
+              <div class="obstacle one">▲</div>
+              <div class="obstacle two">◆</div>
+              <div class="coin">🪙</div>
+            </div>
+            <div class="controls">
+              <button class="tap-zone">Tap / Hold to dodge</button>
+            </div>
+            <button class="floating-btn" data-screen="pause">II</button>
+          </section>
+
+          <section class="screen" id="pause">
+            <h1>Game Paused</h1>
+            <p>Take a breath. Ready to beat your high score?</p>
+            <button class="cta" data-screen="gameplay">Resume</button>
+            <button class="ghost" data-screen="results">End Run</button>
+          </section>
+
+          <section class="screen" id="results">
+            <h1>Run Results</h1>
+            <div class="result-card">
+              <p>Survival Time <strong>02:54</strong></p>
+              <p>Score <strong>2,145</strong></p>
+              <p>Coins Earned <strong>+340</strong></p>
+              <p>Mission Progress <strong>85%</strong></p>
+            </div>
+            <div class="reward-popup">NEW BEST! +1 crate key</div>
+            <button class="cta" data-screen="modes">Play Again</button>
+            <button class="ghost" data-screen="menu">Back to Menu</button>
+          </section>
+
+          <section class="screen" id="daily">
+            <h1>Daily Rewards</h1>
+            <div class="calendar">
+              <button class="day claimed">Day 1<br />100</button>
+              <button class="day claimed">Day 2<br />200</button>
+              <button class="day active">Day 3<br />Skin Shard</button>
+              <button class="day">Day 4<br />300</button>
+              <button class="day">Day 5<br />500</button>
+              <button class="day">Day 6<br />Epic Box</button>
+              <button class="day">Day 7<br />Hero Skin</button>
+            </div>
+            <button class="cta">Claim Reward</button>
+          </section>
+
+          <section class="screen" id="shop">
+            <h1>Shop & Upgrades</h1>
+            <div class="tabs">
+              <button class="tab active">Skins</button>
+              <button class="tab">Boosts</button>
+              <button class="tab">Bundles</button>
+            </div>
+            <div class="shop-grid">
+              <article>
+                <h4>Neon Racer</h4>
+                <p>+5% coin bonus</p>
+                <button class="mini-cta">1200</button>
+              </article>
+              <article>
+                <h4>Magnet II</h4>
+                <p>Coin radius +15%</p>
+                <button class="mini-cta">850</button>
+              </article>
+              <article>
+                <h4>Shield Start</h4>
+                <p>Spawn with 1 shield</p>
+                <button class="mini-cta">950</button>
+              </article>
+            </div>
+          </section>
+
+          <section class="screen" id="profile">
+            <h1>Profile & Settings</h1>
+            <div class="profile-card">
+              <h3>Player: DashRift</h3>
+              <p>Level 14 • Total Runs: 482 • Win Streak: 6</p>
+              <p>Leaderboard Region: Global</p>
+            </div>
+            <div class="settings-list">
+              <label><span>SFX</span><input type="checkbox" checked /></label>
+              <label><span>Music</span><input type="checkbox" checked /></label>
+              <label><span>Vibration</span><input type="checkbox" /></label>
+              <label><span>Left-Hand UI</span><input type="checkbox" /></label>
+            </div>
+            <button class="ghost" data-screen="menu">Done</button>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,7 +1,14 @@
 const screens = [...document.querySelectorAll('.screen')];
 const navButtons = [...document.querySelectorAll('[data-screen]')];
 const backBtn = document.getElementById('backBtn');
+const quickLinks = [...document.querySelectorAll('.quick-link')];
 const historyStack = ['splash'];
+
+function syncQuickNav(id) {
+  quickLinks.forEach((link) => {
+    link.classList.toggle('active', link.dataset.screen === id);
+  });
+}
 
 function showScreen(id, push = true) {
   screens.forEach((screen) => {
@@ -14,6 +21,7 @@ function showScreen(id, push = true) {
   }
 
   backBtn.style.visibility = historyStack.length > 1 ? 'visible' : 'hidden';
+  syncQuickNav(id);
 }
 
 navButtons.forEach((btn) => {

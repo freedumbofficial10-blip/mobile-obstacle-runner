@@ -21,7 +21,10 @@
             <span class="pill">⚡ Lv 14</span>
             <span class="pill">💰 <span id="globalCoins">12840</span></span>
           </div>
-          <button class="icon-btn" id="settingsBtn" data-screen="profile">⚙</button>
+          <div class="header-actions">
+            <button class="icon-btn" data-screen="gallery" aria-label="Open screen gallery">◧</button>
+            <button class="icon-btn" id="settingsBtn" data-screen="profile">⚙</button>
+          </div>
         </header>
 
         <main>
@@ -168,7 +171,32 @@
             </div>
             <button class="ghost" data-screen="menu">Done</button>
           </section>
+
+          <section class="screen" id="gallery">
+            <h1>All Screen Previews</h1>
+            <p class="screen-note">Jump to any screen instantly for review.</p>
+            <div class="gallery-grid">
+              <button class="preview-card" data-screen="splash"><strong>Splash</strong><span>Brand + start CTA</span></button>
+              <button class="preview-card" data-screen="menu"><strong>Main Menu</strong><span>Stats + quick actions</span></button>
+              <button class="preview-card" data-screen="modes"><strong>Mode Selection</strong><span>Pick run type</span></button>
+              <button class="preview-card" data-screen="gameplay"><strong>Gameplay</strong><span>HUD + controls</span></button>
+              <button class="preview-card" data-screen="pause"><strong>Pause</strong><span>Resume or finish</span></button>
+              <button class="preview-card" data-screen="results"><strong>Results</strong><span>Performance summary</span></button>
+              <button class="preview-card" data-screen="daily"><strong>Daily Rewards</strong><span>Streak calendar</span></button>
+              <button class="preview-card" data-screen="shop"><strong>Shop</strong><span>Skins + upgrades</span></button>
+              <button class="preview-card" data-screen="profile"><strong>Profile</strong><span>Identity + settings</span></button>
+            </div>
+          </section>
         </main>
+
+        <nav class="quick-nav" aria-label="Quick screen navigation">
+          <button class="quick-link" data-screen="menu">Menu</button>
+          <button class="quick-link" data-screen="modes">Modes</button>
+          <button class="quick-link" data-screen="gameplay">Play</button>
+          <button class="quick-link" data-screen="daily">Rewards</button>
+          <button class="quick-link" data-screen="shop">Shop</button>
+          <button class="quick-link" data-screen="gallery">All</button>
+        </nav>
       </div>
     </div>
 

@@ -31,6 +31,7 @@ PulseDash Survival is a one-hand, endless obstacle survival game built for short
 - **Daily Rewards**: Streak-based retention mechanic.
 - **Shop**: Skins, boosts, and upgrade progression.
 - **Profile / Settings**: User identity and control preferences.
+- **Screen Gallery**: One-tap preview hub showing all screens for fast demo review.
 
 ## 5) Screen Explanations
 ### Splash Screen
@@ -60,12 +61,16 @@ Tabbed commerce layout for skins, boosts, bundles with coin-based price CTAs.
 ### Profile / Settings
 Player identity card and compact toggles (audio, vibration, handedness) for personalization.
 
+### Screen Gallery
+Centralized preview list of every screen so reviewers can jump directly to any page instead of navigating linearly.
+
 ## 6) UI Design Direction
 - **Style**: Futuristic arcade neon with dark gradients.
 - **Visual hierarchy**: Bold headings, bright CTA buttons, clear HUD tokens.
 - **Feedback cues**: Reward popup, locked state cards, selected mode highlighting.
 - **Polish details**: Rounded cards, glow shadows, smooth screen transitions.
 - **Mobile realism**: 360×760 phone frame and thumb-friendly component spacing.
+- **Review efficiency**: Added quick navigation bar + gallery for full-screen preview workflow.
 
 ## 7) Front-End Code
 The working prototype is implemented with:

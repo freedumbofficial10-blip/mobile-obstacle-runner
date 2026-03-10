@@ -1,82 +1,59 @@
-# PulseDash Survival — Mobile Casual Game Prototype
+# PulseDash Survival (Playable Phaser Prototype)
 
-## 1) Game Name
-**PulseDash Survival**
+A working mobile-friendly survival game built with **HTML + CSS + JavaScript + Phaser 3**.
 
-## 2) Gameplay Concept
-PulseDash Survival is a one-hand, endless obstacle survival game built for short and addictive sessions. Players control a runner with tap and hold interactions to dodge hazards, collect coins, and extend survival time while speed progressively ramps up.
+## Project Structure
 
-### Core Pillars
-- **One-hand mastery**: Simple input, high skill ceiling.
-- **Session-friendly loops**: 1–3 minute runs with instant restart.
-- **Visible progression**: Coins, missions, skins, upgrades, daily rewards.
-- **Competitive motivation**: High score and leaderboard positioning.
+```text
+mobile-obstacle-runner/
+├── index.html     # App shell and screens (Menu, Gameplay, Game Over)
+├── styles.css     # Mobile UI styles and layout
+├── app.js         # Game flow, Phaser logic, localStorage persistence
+└── README.md      # Setup and run instructions
+```
 
-## 3) Game Loop
-1. Open app and claim daily reward.
-2. Select mode (default: Endless Run).
-3. Start run and survive while collecting coins.
-4. Run ends after collision or manual stop.
-5. Review result summary (time, score, coins, mission progress).
-6. Spend coins in shop for skins/upgrades.
-7. Repeat to chase high score and mission completion.
+## Features Implemented
 
-## 4) App Structure
-- **Splash**: Brand identity and entry CTA.
-- **Main Menu**: Quick status, mission snapshot, route to core actions.
-- **Mode Selection**: Choose mode and difficulty flavor.
-- **Gameplay**: HUD + playfield + one-hand input zone.
-- **Pause**: Resume or end run.
-- **Results**: Performance breakdown and reward feedback.
-- **Daily Rewards**: Streak-based retention mechanic.
-- **Shop**: Skins, boosts, and upgrade progression.
-- **Profile / Settings**: User identity and control preferences.
-- **Screen Gallery**: One-tap preview hub showing all screens for fast demo review.
+- Main Menu with **Play Now** button
+- Playable gameplay scene
+- Character movement (tap left/right half of screen)
+- Obstacle spawning
+- Coin spawning and collection
+- Live score timer
+- Collision detection and Game Over trigger
+- Game Over screen with Restart button
+- Local storage persistence for:
+  - `best time`
+  - `coins`
+  - `level`
 
-## 5) Screen Explanations
-### Splash Screen
-Neon brand reveal, loading animation, and a single tap-to-start CTA for immediate onboarding.
+## Game Flow
 
-### Main Menu
-Displays best time, ranking, and mission prompt with a prominent Play button plus shortcut cards.
+Main Menu → Play Now → Gameplay → Game Over → Restart
 
-### Mode Selection
-Mode cards with selected and locked states to set expectation and progression goals.
+## Run Instructions
 
-### Gameplay Screen
-High-contrast HUD (time/score/coins), animated playfield representation, and large one-hand control zone.
+### Option 1: Python
 
-### Pause Screen
-Low-friction interruption state with clear resume and end-run options.
+```bash
+python3 -m http.server 4173
+```
 
-### Results Screen
-Rewards closure using score card + reward popup + replay CTA.
+Open: `http://localhost:4173`
 
-### Daily Rewards
-7-day streak grid with claimed/active states and claim call-to-action.
+### Option 2: VS Code Live Server
 
-### Shop
-Tabbed commerce layout for skins, boosts, bundles with coin-based price CTAs.
+Serve `index.html` with any static server and open in browser.
 
-### Profile / Settings
-Player identity card and compact toggles (audio, vibration, handedness) for personalization.
+## Controls
 
-### Screen Gallery
-Centralized preview list of every screen so reviewers can jump directly to any page instead of navigating linearly.
+- **Tap left side**: move character left lane
+- **Tap right side**: move character right lane
 
-## 6) UI Design Direction
-- **Style**: Futuristic arcade neon with dark gradients.
-- **Visual hierarchy**: Bold headings, bright CTA buttons, clear HUD tokens.
-- **Feedback cues**: Reward popup, locked state cards, selected mode highlighting.
-- **Polish details**: Rounded cards, glow shadows, smooth screen transitions.
-- **Mobile realism**: 360×760 phone frame and thumb-friendly component spacing.
-- **Review efficiency**: Added quick navigation bar + gallery for full-screen preview workflow.
+## Persistence
 
-## 7) Front-End Code
-The working prototype is implemented with:
-- `index.html` for all app screens and UI structure.
-- `styles.css` for visual system, animation, and layout.
-- `app.js` for screen navigation and back-stack behavior.
+Progress is saved in browser localStorage using keys:
 
-## 8) Prototype Goals
-This prototype is UI-first, intended for concept validation, usability walkthroughs, and visual handoff before wiring live gameplay logic.
+- `pulsedash_best_time`
+- `pulsedash_total_coins`
+- `pulsedash_level`

@@ -15,6 +15,7 @@ const state = {
 const menuScreen = document.getElementById('menuScreen');
 const gameScreen = document.getElementById('gameScreen');
 const gameOverScreen = document.getElementById('gameOverScreen');
+const runtimeMessage = document.getElementById('runtimeMessage');
 
 const bestTimeValue = document.getElementById('bestTimeValue');
 const coinValue = document.getElementById('coinValue');
@@ -30,6 +31,16 @@ const restartBtn = document.getElementById('restartBtn');
 const menuBtn = document.getElementById('menuBtn');
 
 let game;
+
+function showMessage(message, type = 'info') {
+  runtimeMessage.textContent = message;
+  runtimeMessage.className = `runtime-message show ${type === 'error' ? 'error' : ''}`.trim();
+}
+
+function hideMessage() {
+  runtimeMessage.textContent = '';
+  runtimeMessage.className = 'runtime-message';
+}
 
 function setScreen(screen) {
   [menuScreen, gameScreen, gameOverScreen].forEach((el) => el.classList.remove('active'));
@@ -52,7 +63,24 @@ function refreshMenuStats() {
   levelValue.textContent = state.level;
 }
 
+function ensureRuntimeReady() {
+  if (location.protocol === 'file:') {
+    showMessage('Open via local server (npm start), not file:// URL.', 'error');
+    return false;
+  }
+
+  if (typeof window.Phaser === 'undefined') {
+    showMessage('Phaser failed to load. Check internet access or CDN policy, then refresh.', 'error');
+    return false;
+  }
+
+  return true;
+}
+
 function startGame() {
+  if (!ensureRuntimeReady()) return;
+
+  hideMessage();
   setScreen(gameScreen);
   state.runCoins = 0;
   state.runTime = 0;
@@ -62,8 +90,8 @@ function startGame() {
   if (game) game.destroy(true);
 
   const container = document.getElementById('gameContainer');
-  const width = container.clientWidth;
-  const height = container.clientHeight;
+  const width = Math.max(container.clientWidth, 320);
+  const height = Math.max(container.clientHeight, 420);
 
   class RunScene extends Phaser.Scene {
     constructor() {
@@ -207,3 +235,7 @@ menuBtn.addEventListener('click', () => {
 });
 
 refreshMenuStats();
+if (!ensureRuntimeReady()) {
+  playBtn.disabled = true;
+  restartBtn.disabled = true;
+}

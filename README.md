@@ -60,6 +60,18 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
+## If you "can't open it"
+
+- Do **not** open `index.html` directly using `file://...`; use a local server (`npm start`).
+- If port `4173` is in use, run on another port:
+
+```bash
+PORT=4174 npm start
+```
+
+Then open `http://localhost:4174`.
+- If the page opens but the game won’t start, check network policy/firewall for access to jsDelivr CDN (Phaser script).
+
 ## Controls
 
 - **Tap left side**: move character left lane

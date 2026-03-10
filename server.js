@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = process.env.PORT || 4173;
+const PORT = Number(process.env.PORT) || 4173;
 const ROOT = __dirname;
 
 const MIME = {
@@ -24,6 +24,7 @@ function sendFile(res, filePath) {
       res.end('Not found');
       return;
     }
+
     const ext = path.extname(filePath).toLowerCase();
     res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
     res.end(data);
@@ -33,7 +34,7 @@ function sendFile(res, filePath) {
 const server = http.createServer((req, res) => {
   const urlPath = decodeURIComponent(req.url.split('?')[0]);
   const requested = urlPath === '/' ? '/index.html' : urlPath;
-  const filePath = path.join(ROOT, requested);
+  const filePath = path.resolve(ROOT, `.${requested}`);
 
   if (!filePath.startsWith(ROOT)) {
     res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -46,8 +47,19 @@ const server = http.createServer((req, res) => {
       sendFile(res, path.join(filePath, 'index.html'));
       return;
     }
+
     sendFile(res, filePath);
   });
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Try: PORT=4174 npm start`);
+    process.exit(1);
+  }
+
+  console.error(err);
+  process.exit(1);
 });
 
 server.listen(PORT, '0.0.0.0', () => {
